@@ -2,6 +2,10 @@
 #include "ui_widget.h"
 #include <QtSql>
 #include <QtGui>
+#include <QSqlQueryModel>
+#include <QSplitter>
+#include <QMessageBox>
+#include <QTableView>
 #include "pieview.h"
 
 Widget::Widget(QWidget *parent) :

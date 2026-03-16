@@ -1,5 +1,7 @@
 #include <math.h>
 #include <QtGui>
+#include <QScrollBar>
+#include <QRegion>
 
 #ifndef M_PI
 #define M_PI 3.1415927
@@ -412,7 +414,7 @@ void PieView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlag
         for (int column = 0; column < columns; ++column) {
             QModelIndex index = model()->index(row, column, rootIndex());
             QRegion region = itemRegion(index);
-            if (!region.intersect(contentsRect).isEmpty())
+            if (!region.intersected(contentsRect).isEmpty())
                 indexes.append(index);
         }
     }
