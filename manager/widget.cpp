@@ -2,7 +2,6 @@
 #include "ui_widget.h"
 #include <QtSql>
 #include <QtGui>
-#include <QSqlQueryModel>
 #include <QSplitter>
 #include <QMessageBox>
 #include <QTableView>

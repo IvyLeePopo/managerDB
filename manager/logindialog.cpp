@@ -1,4 +1,4 @@
-#include "logindialog.h"
+ï»¿#include "logindialog.h"
 #include "ui_logindialog.h"
 #include <QMessageBox>
 #include <QSqlQuery>
@@ -11,7 +11,7 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->setupUi(this);
 
     setFixedSize(400, 300);
-    setWindowTitle(tr("µÇÂ¼"));
+    setWindowTitle(tr("ç™»å½•"));
     ui->pwdLineEdit->setFocus();
     ui->loginBtn->setDefault(true);
 }
@@ -21,12 +21,12 @@ LoginDialog::~LoginDialog()
     delete ui;
 }
 
-// µÇÂ¼°´Å¥
+// ç™»å½•æŒ‰é’®
 void LoginDialog::on_loginBtn_clicked()
 {
     if (ui->pwdLineEdit->text().isEmpty()) {
-        QMessageBox::information(this, tr("ÇëÊäÈëÃÜÂë"),
-                                 tr("ÇëÏÈÊäÈëÃÜÂëÔÙµÇÂ¼£¡"), QMessageBox::Ok);
+        QMessageBox::information(this, tr("è¯·è¾“å…¥å¯†ç "),
+                                 tr("è¯·å…ˆè¾“å…¥å¯†ç å†ç™»å½•ï¼"), QMessageBox::Ok);
         ui->pwdLineEdit->setFocus();
     } else {
         QSqlQuery query;
@@ -35,15 +35,15 @@ void LoginDialog::on_loginBtn_clicked()
         if (query.value(0).toString() == ui->pwdLineEdit->text()) {
             QDialog::accept();
         } else {
-            QMessageBox::warning(this, tr("ÃÜÂë´íÎó"),
-                                 tr("ÇëÊäÈëÕýÈ·µÄÃÜÂëÔÙµÇÂ¼£¡"), QMessageBox::Ok);
+            QMessageBox::warning(this, tr("å¯†ç é”™è¯¯"),
+                                 tr("è¯·è¾“å…¥æ­£ç¡®çš„å¯†ç å†ç™»å½•ï¼"), QMessageBox::Ok);
             ui->pwdLineEdit->clear();
             ui->pwdLineEdit->setFocus();
         }
     }
 }
 
-// ÍË³ö°´Å¥
+// é€€å‡ºæŒ‰é’®
 void LoginDialog::on_quitBtn_clicked()
 {
     QDialog::reject();
